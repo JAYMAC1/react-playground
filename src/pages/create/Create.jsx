@@ -5,7 +5,8 @@ const Create = () => {
   return (
     <div className='container'>
       <form className='form'>
-        <h2>Register</h2>
+        <h2>Register With Us</h2>
+        <div className='form-control'></div>
       </form>
     </div>
   )
