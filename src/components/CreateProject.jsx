@@ -82,16 +82,7 @@ const CreateProject = () => {
             required
           />
         </div>
-        <div className='form-control'>
-          <label htmlFor='projectId'>Project Id:</label>
-          <input
-            type='text'
-            name='projectId'
-            id='projectId'
-            value={projectId}
-            readOnly
-          />
-        </div>
+
         <div className='form-control'>
           <label htmlFor='projectOwner'>Project Owner:</label>
           <input
