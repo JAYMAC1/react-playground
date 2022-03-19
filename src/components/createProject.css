@@ -1,0 +1,69 @@
+#registration-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* min-height: 100vh; */
+  margin-top: 50px;
+}
+.project-form {
+  box-shadow: 7px 5px 18px -4px rgba(0, 0, 0, 0.83);
+  -webkit-box-shadow: 7px 5px 18px -4px rgba(0, 0, 0, 0.83);
+  -moz-box-shadow: 7px 5px 18px -4px rgba(0, 0, 0, 0.83);
+  background-color: #fff;
+  border-radius: 10px;
+  border: 1px solid #999;
+  min-width: 800px;
+}
+
+.project-form .form-header {
+  padding: 15px 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.project-form .form-header h1 {
+  font-size: 28px;
+  text-align: center;
+  color: #666;
+}
+
+.project-form .form-body {
+  background: #fff;
+  padding: 5px 10px;
+}
+
+.project-form .form-body .row {
+  display: flex;
+}
+
+.project-form .form-body .input-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin: 10px 5px;
+}
+
+.project-form .form-control {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.project-form .input-group label {
+  color: #666;
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.input-group input[type='text'],
+.input-group input[type='email'],
+.input-group input[type='date'] {
+  font-size: 18px;
+  height: 34px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: #666;
+  border: 1px solid #d6d6d6d6;
+  border-radius: 6px;
+  background: #fff;
+  outline: none;
+}
