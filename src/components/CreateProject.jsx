@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 
 import { v4 as uuidv4 } from 'uuid'
 const CreateProject = () => {
   const [formData, setFormData] = useState({
+    projectId: '',
     projectName: '',
     projectOwner: '',
     projectManager: '',
@@ -14,6 +15,7 @@ const CreateProject = () => {
   })
 
   const {
+    projectId,
     projectName,
     projectOwner,
     projectManager,
@@ -23,6 +25,15 @@ const CreateProject = () => {
     projectTeam,
     projectMileStones,
   } = formData
+
+  const setId = useCallback(() => {
+    const id = uuidv4()
+    setFormData({ ...formData, projectId: id })
+  }, [uuidv4])
+
+  useEffect(() => {
+    setId()
+  }, [setId])
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -69,6 +80,16 @@ const CreateProject = () => {
             onChange={onMutate}
             value={projectName}
             required
+          />
+        </div>
+        <div className='form-control'>
+          <label htmlFor='projectId'>Project Id:</label>
+          <input
+            type='text'
+            name='projectId'
+            id='projectId'
+            value={projectId}
+            readOnly
           />
         </div>
         <div className='form-control'>
