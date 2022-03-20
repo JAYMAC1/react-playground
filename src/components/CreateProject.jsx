@@ -179,6 +179,12 @@ const CreateProject = () => {
                 />
               </div>
             </div>
+            <div className='row'>
+              <div className='input-group'>
+                <label htmlFor='projectMileStones'>Project Milestones:</label>
+                <button>Add Milestone</button>
+              </div>
+            </div>
           </div>
         </form>
       </section>
