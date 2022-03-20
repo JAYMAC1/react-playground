@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useCallback } from 'react'
 import Select from 'react-select'
-
 import { v4 as uuidv4 } from 'uuid'
 import './createProject.css'
+import MilestoneItem from './MilestoneItem'
+import Modal from './Modal'
 
 const availableUsers = [
   { id: '1', name: 'Millie', email: 'millie@test.dev' },
@@ -12,6 +13,7 @@ const availableUsers = [
 
 const CreateProject = () => {
   const [users, setUsers] = useState([])
+  const [showModal, setShowModal] = useState(false)
   const [formData, setFormData] = useState({
     projectId: uuidv4(),
     projectName: '',
@@ -72,6 +74,10 @@ const CreateProject = () => {
         [e.target.id]: boolean ?? e.target.value,
       }))
     }
+  }
+  const handleClick = (e) => {
+    e.preventDefault()
+    console.log('Adding project milestone')
   }
 
   console.log(formData)
@@ -182,11 +188,13 @@ const CreateProject = () => {
             <div className='row'>
               <div className='input-group'>
                 <label htmlFor='projectMileStones'>Project Milestones:</label>
-                <button>Add Milestone</button>
+                <button onClick={handleClick}>Add Milestone</button>
+                {formData.projectMileStones.length === 0 && <MilestoneItem />}
               </div>
             </div>
           </div>
         </form>
+        {showModal && <Modal />}
       </section>
     </>
   )

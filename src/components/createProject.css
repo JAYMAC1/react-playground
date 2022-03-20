@@ -47,11 +47,16 @@
   padding: 10px;
 }
 
-.project-form .form-body .input-group label {
+.project-form .form-body .input-group label,
+.project-form .form-body .input-group button {
   color: #666;
   font-size: 17px;
   font-weight: 500;
   margin-bottom: 10px;
+}
+
+.project-form .form-body .input-group button {
+  height: 34px;
 }
 
 .input-group input[type='text'],
