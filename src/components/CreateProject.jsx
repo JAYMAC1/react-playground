@@ -1,9 +1,17 @@
 import React, { useState, useEffect, useCallback } from 'react'
+import Select from 'react-select'
 
 import { v4 as uuidv4 } from 'uuid'
 import './createProject.css'
 
+const availableUsers = [
+  { id: '1', name: 'Millie', email: 'millie@test.dev' },
+  { id: '2', name: 'Jess', email: 'jess@test.dev' },
+  { id: '3', name: 'Rachel', email: 'rachel@test.dev' },
+]
+
 const CreateProject = () => {
+  const [users, setUsers] = useState([])
   const [formData, setFormData] = useState({
     projectId: uuidv4(),
     projectName: '',
@@ -26,6 +34,13 @@ const CreateProject = () => {
     projectTeam,
     projectMileStones,
   } = formData
+
+  useEffect(() => {
+    const options = availableUsers.map((user) => {
+      return { value: user, label: user.name }
+    })
+    setUsers(options)
+  }, [])
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -134,7 +149,6 @@ const CreateProject = () => {
                 />
               </div>
             </div>
-            <hr />
             <div className='row'>
               <div className='input-group'>
                 <label htmlFor='projectDescription'>Project Summary</label>
@@ -147,8 +161,24 @@ const CreateProject = () => {
                   value={projectDescription}></textarea>
               </div>
             </div>
-            <hr />
-            <div className='row'></div>
+            <div className='row'>
+              <div className='input-group'>
+                <label htmlFor='projectTeam'>Add Team Member:</label>
+                <Select
+                  className='select'
+                  id='projectTeam'
+                  name='projectTeam'
+                  onChange={(option) =>
+                    setFormData((prevState) => ({
+                      ...prevState,
+                      projectTeam: option.value,
+                    }))
+                  }
+                  options={users}
+                  isMulti
+                />
+              </div>
+            </div>
           </div>
         </form>
       </section>
