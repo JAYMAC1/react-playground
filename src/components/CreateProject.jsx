@@ -147,76 +147,12 @@ const CreateProject = () => {
                   value={projectDescription}></textarea>
               </div>
             </div>
+            <hr />
+            <div className='row'></div>
           </div>
         </form>
       </section>
     </>
-    // <div classNameName='container'>
-    //   <form classNameName='form' onSubmit={handleSubmit}>
-    //     <div classNameName='form-header'>
-    //       <h1>New Project</h1>
-    //     </div>
-    //     <div classNameName='form-control'>
-    //       <label htmlhtmlFor='projectName'>Project Name:</label>
-    //       <input
-    //         type='text'
-    //         name='projectName'
-    //         id='projectName'
-    //         onChange={onMutate}
-    //         value={projectName}
-    //         required
-    //       />
-    //     </div>
-
-    //     <div classNameName='form-control'>
-    //       <label htmlhtmlFor='projectOwner'>Project Owner:</label>
-    //       <input
-    //         type='text'
-    //         name='projectOwner'
-    //         id='projectOwner'
-    //         onChange={onMutate}
-    //         value={projectOwner}
-    //         required
-    //       />
-    //     </div>
-    //     <div classNameName='form-control'>
-    //       <label htmlhtmlFor='projectManager'>Project Manager:</label>
-    //       <input
-    //         type='text'
-    //         name='projectManager'
-    //         id='projectManager'
-    //         onChange={onMutate}
-    //         value={projectManager}
-    //         required
-    //       />
-    //     </div>
-    //     <div classNameName='form-control dual'>
-    //       <label htmlhtmlFor='projectEstimatedStartDate'>
-    //         Estimated Start Date:
-    //       </label>
-    //       <input
-    //         type='date'
-    //         name='projectEstimatedStartDate'
-    //         id='projectEstimatedStartDate'
-    //         onChange={onMutate}
-    //         value={projectEstimatedStartDate}
-    //         required
-    //       />
-
-    //       <label htmlhtmlFor='projectEstimatedFinishDate'>
-    //         Estimated End Date:
-    //       </label>
-    //       <input
-    //         type='date'
-    //         name='projectEstimatedFinishDate'
-    //         id='projectEstimatedFinishDate'
-    //         onChange={onMutate}
-    //         value={projectEstimatedFinishDate}
-    //         required
-    //       />
-    //     </div>
-    //   </form>
-    // </div>
   )
 }
 

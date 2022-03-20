@@ -35,6 +35,11 @@
   display: flex;
 }
 
+.project-form .form-body hr {
+  border: 0.75px solid #dad4d4;
+  margin-top: 10px;
+}
+
 .project-form .form-body .input-group {
   flex: 1;
   display: flex;
