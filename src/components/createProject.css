@@ -12,7 +12,7 @@
   background-color: #fff;
   border-radius: 10px;
   border: 1px solid #999;
-  min-width: 800px;
+  width: 800px;
 }
 
 .project-form .form-header {
@@ -52,11 +52,14 @@
   color: #666;
   font-size: 17px;
   font-weight: 500;
+  /* padding-bottom: 10px; */
+  margin-bottom: 10px;
 }
 
 .input-group input[type='text'],
 .input-group input[type='email'],
-.input-group input[type='date'] {
+.input-group input[type='date'],
+.input-group textarea {
   font-size: 18px;
   height: 34px;
   padding-left: 10px;
@@ -66,4 +69,9 @@
   border-radius: 6px;
   background: #fff;
   outline: none;
+}
+
+.input-group textarea {
+  height: 200px;
+  resize: vertical;
 }

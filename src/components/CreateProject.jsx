@@ -5,7 +5,7 @@ import './createProject.css'
 
 const CreateProject = () => {
   const [formData, setFormData] = useState({
-    projectId: '',
+    projectId: uuidv4(),
     projectName: '',
     projectOwner: '',
     projectManager: '',
@@ -17,7 +17,6 @@ const CreateProject = () => {
   })
 
   const {
-    projectId,
     projectName,
     projectOwner,
     projectManager,
@@ -27,15 +26,6 @@ const CreateProject = () => {
     projectTeam,
     projectMileStones,
   } = formData
-
-  const setId = useCallback(() => {
-    const id = uuidv4()
-    setFormData({ ...formData, projectId: id })
-  }, [uuidv4])
-
-  useEffect(() => {
-    setId()
-  }, [setId])
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -74,42 +64,51 @@ const CreateProject = () => {
     <>
       {' '}
       <section id='registration-page'>
-        <form class='project-form'>
-          <div class='form-header'>
+        <form className='project-form'>
+          <div className='form-header'>
             <h1>New Project</h1>
           </div>
-          <div class='form-body'>
-            <div class='row'>
-              <div class='input-group'>
-                <label for='firstName'>First Name</label>
+          <div className='form-body'>
+            <div className='row'>
+              <div className='input-group'>
+                <label htmlFor='projectName'>Project Name:</label>
                 <input
                   type='text'
-                  name='firstName'
-                  placeholder='Enter your first name'
-                />
-              </div>
-              <div class='input-group'>
-                <label for='lastName'>Last Name</label>
-                <input
-                  type='text'
-                  name='lastName'
-                  placeholder='Enter your last name'
+                  name='projectName'
+                  id='projectName'
+                  placeholder='Enter the name of the project'
+                  onChange={onMutate}
+                  value={projectName}
                 />
               </div>
             </div>
-            <div class='row'>
-              <div class='input-group'>
-                <label for='email'>Email</label>
+            <div className='row'>
+              <div className='input-group'>
+                <label htmlFor='projectOwner'>Project Owner:</label>
                 <input
-                  type='email'
-                  name='email'
-                  placeholder='Enter your email address'
+                  type='text'
+                  name='projectOwner'
+                  id='projectOwner'
+                  onChange={onMutate}
+                  value={projectOwner}
+                  placeholder='Enter the name of the project owner'
+                />
+              </div>
+              <div className='input-group'>
+                <label htmlFor='projectManager'>Project Manager:</label>
+                <input
+                  type='text'
+                  name='projectManager'
+                  id='projectManager'
+                  onChange={onMutate}
+                  value={projectManager}
+                  placeholder='Enter the name of the project manager'
                 />
               </div>
             </div>
-            <div class='row'>
-              <div class='input-group'>
-                <label for='projectEstimatedStartDate'>
+            <div className='row'>
+              <div className='input-group'>
+                <label htmlFor='projectEstimatedStartDate'>
                   Estimated Start Date
                 </label>
                 <input
@@ -117,10 +116,12 @@ const CreateProject = () => {
                   name='projectEstimatedStartDate'
                   id='projectEstimatedStartDate'
                   placeholder='Enter your projectEstimatedStartDate'
+                  onChange={onMutate}
+                  value={projectEstimatedStartDate}
                 />
               </div>
-              <div class='input-group'>
-                <label for='projectEstimatedFinishDate'>
+              <div className='input-group'>
+                <label htmlFor='projectEstimatedFinishDate'>
                   Estimated Finish Date
                 </label>
                 <input
@@ -128,28 +129,35 @@ const CreateProject = () => {
                   name='projectEstimatedFinishDate'
                   id='projectEstimatedFinishDate'
                   placeholder='Enter your projectEstimatedFinishDate'
+                  onChange={onMutate}
+                  value={projectEstimatedFinishDate}
                 />
               </div>
             </div>
-            <div class='row'>
-              <div class='input-group'>
-                <label for='gender'>Gender</label>
-              </div>
-              <div class='input-group'>
-                <label for='hobbies'>Hobbies</label>
+            <hr />
+            <div className='row'>
+              <div className='input-group'>
+                <label htmlFor='projectDescription'>Project Summary</label>
+                <textarea
+                  placeholder='Project Summary'
+                  rows={10}
+                  name='projectDescription'
+                  id='projectDescription'
+                  onChange={onMutate}
+                  value={projectDescription}></textarea>
               </div>
             </div>
           </div>
         </form>
       </section>
     </>
-    // <div className='container'>
-    //   <form className='form' onSubmit={handleSubmit}>
-    //     <div className='form-header'>
+    // <div classNameName='container'>
+    //   <form classNameName='form' onSubmit={handleSubmit}>
+    //     <div classNameName='form-header'>
     //       <h1>New Project</h1>
     //     </div>
-    //     <div className='form-control'>
-    //       <label htmlFor='projectName'>Project Name:</label>
+    //     <div classNameName='form-control'>
+    //       <label htmlhtmlFor='projectName'>Project Name:</label>
     //       <input
     //         type='text'
     //         name='projectName'
@@ -160,8 +168,8 @@ const CreateProject = () => {
     //       />
     //     </div>
 
-    //     <div className='form-control'>
-    //       <label htmlFor='projectOwner'>Project Owner:</label>
+    //     <div classNameName='form-control'>
+    //       <label htmlhtmlFor='projectOwner'>Project Owner:</label>
     //       <input
     //         type='text'
     //         name='projectOwner'
@@ -171,8 +179,8 @@ const CreateProject = () => {
     //         required
     //       />
     //     </div>
-    //     <div className='form-control'>
-    //       <label htmlFor='projectManager'>Project Manager:</label>
+    //     <div classNameName='form-control'>
+    //       <label htmlhtmlFor='projectManager'>Project Manager:</label>
     //       <input
     //         type='text'
     //         name='projectManager'
@@ -182,8 +190,8 @@ const CreateProject = () => {
     //         required
     //       />
     //     </div>
-    //     <div className='form-control dual'>
-    //       <label htmlFor='projectEstimatedStartDate'>
+    //     <div classNameName='form-control dual'>
+    //       <label htmlhtmlFor='projectEstimatedStartDate'>
     //         Estimated Start Date:
     //       </label>
     //       <input
@@ -195,7 +203,7 @@ const CreateProject = () => {
     //         required
     //       />
 
-    //       <label htmlFor='projectEstimatedFinishDate'>
+    //       <label htmlhtmlFor='projectEstimatedFinishDate'>
     //         Estimated End Date:
     //       </label>
     //       <input
