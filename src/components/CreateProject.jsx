@@ -177,7 +177,7 @@ const CreateProject = () => {
                   onChange={(option) =>
                     setFormData((prevState) => ({
                       ...prevState,
-                      projectTeam: option.value,
+                      projectTeam: option,
                     }))
                   }
                   options={users}
